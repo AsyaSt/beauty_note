@@ -3,10 +3,12 @@ import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEyeSlash, faEye} from "@fortawesome/free-solid-svg-icons";
 import '../LoginPage/LoginPage.styles.css'
+import './RegistrationPage.styles.css'
 
 
 export const RegistrationForm = () => {
     const [login, setLogin] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPass, setShowPass] = useState(false);
     const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -14,12 +16,20 @@ export const RegistrationForm = () => {
 
     return <>
     <form className="form">
-      <h4 className="title">Create account</h4>
+      <div className="form__title">
+        <h4 className="title">Create account</h4>
+      </div>
+
       <div className="col-4">
         <div>
           <input  type="text"  id="username" className='form__input'
             placeholder='Username'
             value={login} onChange={e => setLogin(e.target.value)} />
+        </div>
+        <div>
+          <input  type="text"  id="email" className='form__input'
+            placeholder='Email'
+            value={email} onChange={e => setEmail(e.target.value)} />
         </div>
 
         
@@ -46,8 +56,8 @@ export const RegistrationForm = () => {
             Sign Up</button>
         </div>
       </div>
-      <h6 className="form__submit-text">Already a member?  
-        <Link to="/login" className="form__submit-link"> Log in</Link>
+      <h6 className="form__submit-text">Already have an account?  
+        <Link to="/login" className="form__submit-link registration__submit-link"> Log in</Link>
       </h6>
       {/* <Link to="/login" className="form__submit-link">to login</Link> */}
     </form>
