@@ -1,4 +1,4 @@
-import './BottomMenu.styles.css'
+import './BottomMenu.styles.scss'
 
 export const BottomMenu = () => {
     return (

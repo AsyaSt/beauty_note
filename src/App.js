@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import createHistory from "history/createBrowserHistory";
 import { Main } from './components/Routing/Routs';
 

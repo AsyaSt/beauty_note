@@ -1,0 +1,7 @@
+@import './vars.scss';
+
+body {
+    color:$text-color;
+    background: linear-gradient( $app-dark-bgcolor,  $app-light-bgcolor );
+    font-family: 'Montserrat';
+}

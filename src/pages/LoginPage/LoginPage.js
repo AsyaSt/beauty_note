@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEyeSlash, faEye} from "@fortawesome/free-solid-svg-icons";
-import './LoginPage.styles.css'
+import './LoginPage.styles.scss'
+import '../../vars.scss'
 
 
 export const LoginForm = () => {
