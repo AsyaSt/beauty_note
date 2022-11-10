@@ -1,0 +1,23 @@
+.finance {
+    height: 100vh;
+}
+.salary {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 29px;
+}
+.uah {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+.uah span {
+    padding: 0 10px;
+}
+.uahh {
+    display: flex;
+    align-items: center;
+}
