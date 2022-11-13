@@ -4,24 +4,34 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEyeSlash, faEye} from "@fortawesome/free-solid-svg-icons";
 import './LoginPage.styles.scss'
 import '../../vars.scss'
+import { sendForm } from '../../utils/sendForm';
 
 
 export const LoginForm = () => {
-    const [login, setLogin] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPass, setShowPass] = useState(false);
 
+    const postForm = async(event)  =>{
+      event.preventDefault();
+      const data = new FormData();
+      data.append("email", email);
+      data.append("password", password);
+    
+      sendForm('login', data)
+    }
+
     return <>
-    <form className="form">
+    <form className="form" onSubmit={postForm}>
       <div className="form__title">
         <h4 className="title">Welcome back!</h4>
       </div>
       
       <div className="col-4">
         <div>
-          <input  type="text"  id="username" className='form__input'
+          <input  type="email"  id="username" className='form__input'
             placeholder='Email'
-            value={login} onChange={e => setLogin(e.target.value)} />
+            value={email} onChange={e => setEmail(e.target.value)} />
         </div>
 
         <div  className="form__password">

@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faEyeSlash, faEye} from "@fortawesome/free-solid-svg-icons";
 import '../LoginPage/LoginPage.styles.scss'
 import './RegistrationPage.styles.scss'
+import { sendForm } from '../../utils/sendForm';
 
 
 export const RegistrationForm = () => {
@@ -14,8 +15,21 @@ export const RegistrationForm = () => {
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [showConfPass, setShowConfPass] = useState(false);
 
+    const postForm = async (event)  =>{
+      event.preventDefault();
+      const data = new FormData();
+      data.append("first_name", login);
+      data.append("email", email);
+      data.append("password", password);
+      // data.append("name", name);
+
+      sendForm('register', data)
+      
+    }
+
+
     return <>
-    <form className="form">
+    <form className="form" onSubmit={postForm}>
       <div className="form__title">
         <h4 className="title">Create account</h4>
       </div>
@@ -41,7 +55,7 @@ export const RegistrationForm = () => {
         </div>
 
         <div className="form__password">
-        <input type={showConfPass ? "text" : "password"} id="password" className='form__input form__input-password'
+        <input type={showConfPass ? "text" : "password"} id="confPassword" className='form__input form__input-password'
             placeholder='Confirm Password' value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} />
             <FontAwesomeIcon className='form__icon' icon={showConfPass ? faEye : faEyeSlash} 
             onClick={() => showConfPass? setShowConfPass(false) : setShowConfPass(true)}/>
